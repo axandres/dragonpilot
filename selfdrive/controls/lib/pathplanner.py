@@ -71,7 +71,7 @@ class PathPlanner():
     self.dragon_auto_lc_allowed = False
     self.dragon_auto_lc_timer = None
     self.dragon_assisted_lc_min_mph = LANE_CHANGE_SPEED_MIN
-    self.dragon_auto_lc_min_mph = 60 * CV.MPH_TO_MS
+    self.dragon_auto_lc_min_mph = 30 * CV.MPH_TO_MS
     self.dragon_auto_lc_delay = 2.
     self.last_ts = 0.
     self.dp_last_modified = None
@@ -122,7 +122,7 @@ class PathPlanner():
             try:
               self.dragon_auto_lc_min_mph = float(self.params.get("DragonAutoLCMinMPH", encoding='utf8'))
             except (TypeError, ValueError):
-              self.dragon_auto_lc_min_mph = 20
+              self.dragon_auto_lc_min_mph = 30
             self.dragon_auto_lc_min_mph *= CV.MPH_TO_MS
             if self.dragon_auto_lc_min_mph < 0:
               self.dragon_auto_lc_min_mph = 0
