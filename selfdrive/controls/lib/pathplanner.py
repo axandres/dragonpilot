@@ -18,7 +18,7 @@ LaneChangeDirection = log.PathPlan.LaneChangeDirection
 
 LOG_MPC = os.environ.get('LOG_MPC', False)
 
-LANE_CHANGE_SPEED_MIN = 45 * CV.MPH_TO_MS
+LANE_CHANGE_SPEED_MIN = 30 * CV.MPH_TO_MS
 LANE_CHANGE_TIME_MAX = 10.
 
 DESIRES = {
@@ -122,12 +122,12 @@ class PathPlanner():
             try:
               self.dragon_auto_lc_min_mph = float(self.params.get("DragonAutoLCMinMPH", encoding='utf8'))
             except (TypeError, ValueError):
-              self.dragon_auto_lc_min_mph = 60
+              self.dragon_auto_lc_min_mph = 20
             self.dragon_auto_lc_min_mph *= CV.MPH_TO_MS
             if self.dragon_auto_lc_min_mph < 0:
               self.dragon_auto_lc_min_mph = 0
             # when auto lc is smaller than assisted lc, we set assisted lc to the same speed as auto lc
-            if self.dragon_auto_lc_min_mph = self.dragon_assisted_lc_min_mph:
+            if self.dragon_auto_lc_min_mph < self.dragon_assisted_lc_min_mph:
               self.dragon_assisted_lc_min_mph = self.dragon_auto_lc_min_mph
             # adjustable auto lc delay
             try:
