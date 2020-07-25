@@ -127,7 +127,7 @@ class PathPlanner():
             if self.dragon_auto_lc_min_mph < 0:
               self.dragon_auto_lc_min_mph = 0
             # when auto lc is smaller than assisted lc, we set assisted lc to the same speed as auto lc
-            if self.dragon_auto_lc_min_mph < self.dragon_assisted_lc_min_mph:
+            if self.dragon_auto_lc_min_mph = self.dragon_assisted_lc_min_mph:
               self.dragon_assisted_lc_min_mph = self.dragon_auto_lc_min_mph
             # adjustable auto lc delay
             try:
